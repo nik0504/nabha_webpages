@@ -127,6 +127,7 @@ var messagesRef = firebase.database().ref(type);
       nearby: nearby,
       description: description,
       ShopImage: ShopI,
+      verify:'false'
     });
   }
 

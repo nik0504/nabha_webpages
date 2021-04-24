@@ -2,98 +2,96 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Nabha</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Nabha</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6875583242897347"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="row">
-        <div class="container">
-            <h2 style="text-align: center;margin-bottom: 20px;">Shop Form</h2>
-            <div class="alert alert-success success-message" style="display:none;">Form submitted successfully.</div>
-            <form id="contactForm" style="margin: 0 auto;width: 60%;">
-                <div class="form-group">
-                    <label for="exampleShopName">Shop Name<span style="color: red;">*</span></label>
-                    <input type="text" class="form-control shopname" id="exampleShopName" placeholder="Enter Shop Name"
-                        required>
-                </div>
-                <div class="form-group">
-                    <label for="category">Choose your category</label><br />
-                    <select name="Category" id="category" form="carform" style="width: 50%;" class="category">
-                        <option selected value="Food">Food/Milk/Sweets</option>
-                        <option value="Karyana">Confectionery/Karyana</option>
-                        <option value="Cloths">Cloths/Shoes/Tailer</option>
-                        <option value="Medical Shops">Medical Shops</option>
-                        <option value="Electronics">Electronics</option>
-                        <option value="Beauty">Personal Beauty</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="exampleFullName">Your Name<span style="color: red;">*</span></label>
-                    <input type="text" class="form-control yourname" id="exampleFullName" placeholder="Enter Full Name"
-                        required>
-                </div>
-                <div class="form-group">
-                    <label for="examplePhoneNo">Mobile Number<span style="color: red;">*</span></label>
-                    <input type="number" class="form-control phoneNo" id="examplePhoneNo"
-                        placeholder="Enter Mobile Number" required>
-                </div>
-                <div class="form-group" style="width: 50%;">
-                    <label for="exampleCTime">Shop Opening Time (Approx)<span style="color: red;">*</span></label>
-                    <input type="time" class="form-control oTime" id="exampleCTime" placeholder="Opening Time in AM"
-                        value="09:00" required>
-                </div>
-                <div class="form-group" style="width: 50%;">
-                    <label for="exampleCTime">Shop Closing Time (Approx)<span style="color: red;">*</span></label>
-                    <input type="time" class="form-control cTime" id="exampleCTime" placeholder="Closing Time in PM"
-                        value="20:00" required>
-                </div>
-                <!-- <div class="form-group">
+  <div class="row">
+    <div class="container">
+      <h2 style="text-align: center;margin-bottom: 20px;">Shop Form for Nabha</h2>
+      <div class="alert alert-success success-message" style="display:none;">Form submitted successfully.</div>
+      <form id="contactForm" style="margin: 0 auto;width: 60%;">
+        <div class="form-group">
+          <label for="exampleShopName">Shop Name<span style="color: red;">*</span></label>
+          <input type="text" class="form-control shopname" id="exampleShopName" placeholder="Enter Shop Name" required>
+        </div>
+        <div class="form-group">
+          <label for="category">Choose your category</label><br />
+          <select name="Category" id="category" form="carform" style="width: 50%;" class="category">
+            <option selected value="Food">Food/Milk/Sweets</option>
+            <option value="Karyana">Confectionery/Karyana</option>
+            <option value="Cloths">Cloths/Shoes/Tailer</option>
+            <option value="Medical Shops">Medical Shops</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Beauty">Personal Beauty</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFullName">Your Name<span style="color: red;">*</span></label>
+          <input type="text" class="form-control yourname" id="exampleFullName" placeholder="Enter Full Name" required>
+        </div>
+        <div class="form-group">
+          <label for="examplePhoneNo">Mobile Number<span style="color: red;">*</span></label>
+          <input type="number" class="form-control phoneNo" id="examplePhoneNo" placeholder="Enter Mobile Number"
+            required>
+        </div>
+        <div class="form-group" style="width: 50%;">
+          <label for="exampleCTime">Shop Opening Time (Approx)<span style="color: red;">*</span></label>
+          <input type="time" class="form-control oTime" id="exampleCTime" placeholder="Opening Time in AM" value="09:00"
+            required>
+        </div>
+        <div class="form-group" style="width: 50%;">
+          <label for="exampleCTime">Shop Closing Time (Approx)<span style="color: red;">*</span></label>
+          <input type="time" class="form-control cTime" id="exampleCTime" placeholder="Closing Time in PM" value="20:00"
+            required>
+        </div>
+        <!-- <div class="form-group">
                     <label for="exampleEmail">Email<span style="color: red;">*</span></label>
                     <input type="email" class="form-control email" id="exampleEmail" placeholder="Enter Email" required>
                 </div> -->
-                <div class="form-group">
-                    <label for="exampleAddress">Address<span style="color: red;">*</span></label>
-                    <input type="text" class="form-control address" id="exampleAddress" placeholder="Enter Address"
-                        required>
-                </div>
-                <div class="form-group">
-                    <label for="exampleNearby">Nearby (Optional)</label>
-                    <input type="text" class="form-control nearby" id="exampleNearby"
-                        placeholder="Nearby Anything Famous">
-                </div>
-                <div class="form-group">
-                    <label for="exampleDescription">Description<span style="color: red;">*</span></label>
-                    <textarea class="form-control description" id="exampleDescription" placeholder="Enter Description"
-                        cols="30" rows="10" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="examplePhoto1">Image of your Shop <span style="color: red;">*</span></label><br />
-                    <input type="file" id="photo1" required />
-                </div>
-                <div class="form-group">
-                    <label for="examplePhoto2">Image of your Shop (Any Extra Image Optional) </label><br />
-                    <input type="file" id="photo2" />
-                </div>
-                <div class="form-group">
-                    <label for="examplePhoto3">Image of Owner (Optional)</label><br />
-                    <input type="file" id="photo3" />
-                </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+        <div class="form-group">
+          <label for="exampleAddress">Address<span style="color: red;">*</span></label>
+          <input type="text" class="form-control address" id="exampleAddress" placeholder="Enter Address" required>
         </div>
+        <div class="form-group">
+          <label for="exampleNearby">Nearby (Optional)</label>
+          <input type="text" class="form-control nearby" id="exampleNearby" placeholder="Nearby Anything Famous">
+        </div>
+        <div class="form-group">
+          <label for="exampleDescription">Description<span style="color: red;">*</span></label>
+          <textarea class="form-control description" id="exampleDescription" placeholder="Enter Description" cols="30"
+            rows="10" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="examplePhoto1">Image of your Shop <span style="color: red;">*</span></label><br />
+          <input type="file" id="photo1" required />
+        </div>
+        <div class="form-group">
+          <label for="examplePhoto2">Image of your Shop (Any Extra Image Optional) </label><br />
+          <input type="file" id="photo2" />
+        </div>
+        <div class="form-group">
+          <label for="examplePhoto3">Image of Owner (Optional)</label><br />
+          <input type="file" id="photo3" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
-    <script src="main.js"></script>
-    <!-- <script>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+  <script src="main.js"></script>
+  <!-- <script>
 
         var config = {
             apiKey: "AIzaSyAyG7NvTcckmS_hVMdoIWIsC6zAulb1SNY",
