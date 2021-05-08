@@ -6,7 +6,7 @@ var config = {
   storageBucket: "nabha-app.appspot.com",
   messagingSenderId: "420620959416",
   appId: "1:420620959416:web:cdfc9c1adf5204b6ecbe4d",
-  measurementId: "G-8YMMEMVDXY"
+  measurementId: "G-8YMMEMVDXY",
 };
 firebase.initializeApp(config);
 
@@ -23,59 +23,194 @@ firebase.initializeApp(config);
 //   });
 // });
 
-$('#contactForm').submit(function (e) {
+$("#contactForm").submit(function (e) {
   e.preventDefault();
   localStorage.clear();
-  var ur = "Shops/" + $('.shopname').val() + $('.phoneNo').val();
-  
-  var type = 'shopForm/'+ $('.category').val();
-console.log(type);
-var messagesRef = firebase.database().ref(type);
+  localStorage.setItem("ShopImage", "");
+  localStorage.setItem("ShopImage2", "");
+  var ur =
+    "Shops/" +
+    $(".category").val() +
+    "/" +
+    $(".subcategory").val() +
+    "/" +
+    $(".shopname").val() +
+    $(".phoneNo").val();
+
+  console.log(ur);
+  var type = "shopForm/" + $(".category").val() + "/" + $(".subcategory").val();
+  console.log(type);
+  var messagesRef = firebase.database().ref(type);
 
   const ref = firebase.storage().ref(ur);
   const file = document.querySelector("#photo1").files[0];
-  const file2 = document.querySelector("#photo2").files[0] ? document.querySelector("#photo2").files[0] : "no";
-  const file3 = document.querySelector("#photo3").files[0];
-  console.log(file2);
+  var file2 = document.querySelector("#photo2").files[0]
+    ? document.querySelector("#photo2").files[0]
+    : "no";
+  // var file3 = document.querySelector("#photo3").files[0]
+  //   ? document.querySelector("#photo3").files[0]
+  //   : "no";
+  console.log(file2 != "no");
+  // console.log(file3);
   const name = +new Date() + "-" + file.name;
-  const name2 = +new Date() + "-";
-  const name3 = +new Date() + "-";
+  const name2 = +new Date() + "-" + "Extra";
+  // const name3 = +new Date() + "-" + "Owner";
   const metadata = {
-    contentType: file.type
+    contentType: file.type,
   };
-  const uploadTask1 = ref.child(name).put(file, metadata);
 
-
-  uploadTask1.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
-    function (snapshot) {
-      // var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      // console.log('Upload is ' + progress + '% done');
-      // switch (snapshot.state) {
-      //   case firebase.storage.TaskState.PAUSED: // or 'paused'
-      //     console.log('Upload is paused');
-      //     break;
-      //   case firebase.storage.TaskState.RUNNING: // or 'running'
-      //     console.log('Upload is running');
-      //     break;
-      // }
-    }, function (error) {
-
-      switch (error.code) {
-        case 'storage/unauthorized':
-          break;
-        case 'storage/canceled':
-          break;
-        case 'storage/unknown':
-          break;
+  if (file2 != "no") {
+    const uploadTask2 = ref.child(name2).put(file2, metadata);
+    console.log("2nd");
+    uploadTask2.on(
+      firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+      function (snapshot) {},
+      function (error) {
+        switch (error.code) {
+          case "storage/unauthorized":
+            break;
+          case "storage/canceled":
+            break;
+          case "storage/unknown":
+            break;
+        }
+      },
+      function () {
+        uploadTask2.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+          console.log("File available at", downloadURL);
+          localStorage.setItem("ShopImage2", downloadURL);
+          trigger();
+        });
       }
-    }, function () {
-      uploadTask1.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-        console.log('File available at', downloadURL);
-        localStorage.setItem("ShopImage", downloadURL);
-        i();
-      });
-    });
+    );
 
+    const uploadTask1 = ref.child(name).put(file, metadata);
+
+    uploadTask1.on(
+      firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+      function (snapshot) {},
+      function (error) {
+        switch (error.code) {
+          case "storage/unauthorized":
+            break;
+          case "storage/canceled":
+            break;
+          case "storage/unknown":
+            break;
+        }
+      },
+      function () {
+        // if (file2 == "no") {
+        //   localStorage.setItem("ShopImage2", "");
+        // }
+        uploadTask1.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+          console.log("File available at", downloadURL);
+          localStorage.setItem("ShopImage", downloadURL);
+          // setTimeout(function () {
+          //   i();
+          // }, 1000);
+          // i();
+          trigger();
+        });
+      }
+    );
+    // i();
+  } else {
+    const uploadTask1 = ref.child(name).put(file, metadata);
+
+    uploadTask1.on(
+      firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+      function (snapshot) {},
+      function (error) {
+        switch (error.code) {
+          case "storage/unauthorized":
+            break;
+          case "storage/canceled":
+            break;
+          case "storage/unknown":
+            break;
+        }
+      },
+      function () {
+        if (file2 == "no") {
+          localStorage.setItem("ShopImage2", "");
+        }
+        uploadTask1.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+          console.log("File available at", downloadURL);
+          localStorage.setItem("ShopImage", downloadURL);
+          // setTimeout(function () {
+          //   i();
+          // }, 1000);
+          i();
+        });
+      }
+    );
+  }
+
+  function trigger() {
+    if (
+      localStorage.getItem("ShopImage").length > 0 &&
+      localStorage.getItem("ShopImage2").length > 0
+    ) {
+      i();
+    }
+  }
+
+  // if (file3 != "no") {
+  //   const uploadTask3 = ref.child(name3).put(file3, metadata);
+  //   console.log("3rrrd");
+
+  //   uploadTask3.on(
+  //     firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+  //     function (snapshot) {},
+  //     function (error) {
+  //       switch (error.code) {
+  //         case "storage/unauthorized":
+  //           break;
+  //         case "storage/canceled":
+  //           break;
+  //         case "storage/unknown":
+  //           break;
+  //       }
+  //     },
+  //     function () {
+  //       uploadTask3.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+  //         console.log("File available at", downloadURL);
+  //         localStorage.setItem("ShopImage3", downloadURL);
+  //       });
+  //     }
+  //   );
+  // }
+
+  // const uploadTask1 = ref.child(name).put(file, metadata);
+
+  // uploadTask1.on(
+  //   firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+  //   function (snapshot) {},
+  //   function (error) {
+  //     switch (error.code) {
+  //       case "storage/unauthorized":
+  //         break;
+  //       case "storage/canceled":
+  //         break;
+  //       case "storage/unknown":
+  //         break;
+  //     }
+  //   },
+  //   function () {
+  //     if (file2 == "no") {
+  //       localStorage.setItem("ShopImage2", "");
+  //     }
+  //     uploadTask1.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+  //       console.log("File available at", downloadURL);
+  //       localStorage.setItem("ShopImage", downloadURL);
+  //       // setTimeout(function () {
+  //       //   i();
+  //       // }, 1000);
+  //       i();
+  //     });
+  //   }
+  // );
   //   },
   //   function(){
   // var messagesRef = firebase.database().ref('contactformmessages');
@@ -102,33 +237,52 @@ var messagesRef = firebase.database().ref(type);
   //     })
   //     .catch(console.error);
 
-  var shopName = $('.shopname').val();
-  var category = $('.category').val();
-  var yourname = $('.yourname').val();
-  var phoneNo = $('.phoneNo').val();
-  var oTime = $('.oTime').val();
-  var cTime = $('.cTime').val();
-  var address = $('.address').val();
-  var nearby = $('.nearby').val();
-  var description = $('.description').val();
+  var shopName = $(".shopname").val();
+  var category = $(".category").val();
+  var subcategory = $(".subcategory").val();
+  var yourname = $(".yourname").val();
+  var phoneNo = $(".phoneNo").val();
+  var wphoneNo = $(".wphoneNo").val();
+  var oTime = $(".oTime").val();
+  var cTime = $(".cTime").val();
+  var address = $(".address").val();
+  var nearby = $(".nearby").val();
+  var map = $(".map").val();
+  var description = $(".description").val();
 
   function i() {
     var newMessageRef = messagesRef.push();
     var ShopI = localStorage.getItem("ShopImage");
-    console.log('File available at', ShopI);
+    var ShopI2 = localStorage.getItem("ShopImage2")
+      ? localStorage.getItem("ShopImage2")
+      : "";
+    // var ShopI3 = localStorage.getItem("ShopImage3")
+    //   ? localStorage.getItem("ShopImage3")
+    //   : "";
+    console.log("File available at", ShopI);
+    console.log("File available at", ShopI2);
     newMessageRef.set({
       shopName: shopName,
       category: category,
+      subcategory: subcategory,
       ownerName: yourname,
       phoneNo: phoneNo,
+      wphoneNo: wphoneNo,
       oTime: oTime,
       cTime: cTime,
       address: address,
       nearby: nearby,
+      map: map,
       description: description,
+      ShopImage2: ShopI2.length < 1 ? [ShopI] : [ShopI, ShopI2],
       ShopImage: ShopI,
-      verify:'false'
+      // ShopImage3: ShopI3,
+      verify: false,
     });
+    localStorage.clear();
+    $(".success-message").show();
+    alert("success");
+    $("#contactForm")[0].reset();
   }
 
   // var newMessageRef = messagesRef.push();
@@ -146,13 +300,7 @@ var messagesRef = firebase.database().ref(type);
   //   description: $('.description').val(),
   //   ShopImage: ShopI,
   // });
-
-  $('.success-message').show();
-  alert("success");
-
-  $('#contactForm')[0].reset();
-}
-);
+});
 
 // function setvalue(url){
 //           var newMessageRef = messagesRef.push();
