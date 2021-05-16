@@ -239,7 +239,7 @@ $("#contactForm").submit(function (e) {
 
   var shopName = $(".shopname").val();
   var category = $(".category").val();
-  var subcategory = $(".subcategory").val();
+  var subCategory = $(".subcategory").val();
   var yourname = $(".yourname").val();
   var phoneNo = $(".phoneNo").val();
   var wphoneNo = $(".wphoneNo").val();
@@ -264,7 +264,7 @@ $("#contactForm").submit(function (e) {
     newMessageRef.set({
       shopName: shopName,
       category: category,
-      subcategory: subcategory,
+      subCategory: subcategory,
       ownerName: yourname,
       phoneNo: phoneNo,
       wphoneNo: wphoneNo,
@@ -278,6 +278,10 @@ $("#contactForm").submit(function (e) {
       ShopImage: ShopI,
       // ShopImage3: ShopI3,
       verify: false,
+      slider: [""],
+      extra1: "",
+      extra2: "",
+      extra3: "",
     });
     localStorage.clear();
     $(".success-message").show();
