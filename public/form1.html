@@ -12,16 +12,16 @@
     crossorigin="anonymous"></script> -->
   <script type="text/javascript">
     var subcategory = {
-      Food: ["Bakery", "Dairy", "Karyana Store", "Grocery Store or Chains", "Sweets", "Restaurants", "Fast Food Points", "IceCream", "Juice Shake Soda", "Dhaba"],
-      Clothes: ["Garments", "Footware", "Tailors and Boutiques", "Bags and Purses"],
-      Medical: ["Chemist", "Hospitals", "Clinics", "Laboratories", "Physiotherapist", "Dentist", "Ayurvedic", "Homopathy", "Veterinary"],
-      Electronics: ["Telecom or Mobiles & Accessories or Repair", "Electronics", "Electronics Repair"],
-      Beauty: ["Jewellery", "Manihari Shops", "Parlours & Salon"],
-      Decor: ["Gift Shop", "Crockery", "Furnitures or Timber or Playwood", "Paint Shop", "Sanitory and Tiles", "Architect", "Cement & Reta"],
-      Automobile: ["Automobile & Motors", "Service Points", "Car Wash", "Tire Shop", "Automobile Accessories & Spare Parts"],
-      General: ["Stationary", "Sports", "Photostate & Services or Printing Press", "Photograph Shop", "Opticals", "Watches & Clock", "Real Estate"],
-      Education: ["Tutions or Coaching Centers", "Playway or Creches", "School", "Dance Classes", "Sports Coaches or Clubs", "Art Classes"],
-      Others: ["Others"],
+      Food: ["Select Sub Category", "Bakery", "Dairy", "Karyana Store", "Grocery Store or Chains", "Sweets", "Restaurants", "Fast Food Points", "IceCream", "Juice Shake Soda", "Dhaba"],
+      Clothes: ["Select Sub Category", "Garments", "Footware", "Tailors and Boutiques", "Bags and Purses"],
+      Medical: ["Select Sub Category", "Chemist", "Hospitals", "Clinics", "Laboratories", "Physiotherapist", "Dentist", "Ayurvedic", "Homopathy", "Veterinary"],
+      Electronics: ["Select Sub Category", "Telecom or Mobiles & Accessories or Repair", "Electronics", "Electronics Repair"],
+      Beauty: ["Select Sub Category", "Jewellery", "Manihari Shops", "Parlours & Salon"],
+      Decor: ["Select Sub Category", "Gift Shop", "Crockery", "Furnitures or Timber or Playwood", "Paint Shop", "Sanitory and Tiles", "Architect", "Cement & Reta"],
+      Automobile: ["Select Sub Category", "Automobile & Motors", "Service Points", "Car Wash", "Tire Shop", "Automobile Accessories & Spare Parts"],
+      General: ["Select Sub Category", "Stationary", "Sports", "Photostate & Services or Printing Press", "Photograph Shop", "Opticals", "Watches & Clock", "Real Estate"],
+      Education: ["Select Sub Category", "Tutions or Coaching Centers", "Playway or Creches", "School", "Dance Classes", "Sports Coaches or Clubs", "Art Classes"],
+      Others: ["Select Sub Category", "Others"],
     }
     function makeSubmenu(value) {
       if (value.length == 0) document.getElementById("subcategory").innerHTML = "<option></option>";
@@ -51,7 +51,7 @@ background: url('http://www.geertjanhendriks.nl/codepen/form/golf.png') repeat-x
           <input type="text" class="form-control shopname" id="exampleShopName" placeholder="Enter Name" required>
         </div>
         <div class="form-group">
-          <label for="category">Choose your category<span style="color: red;">*</span></label><br />
+          <label for="category">Choose Your Category<span style="color: red;">*</span></label><br />
           <select name="Category" class="category" id="category" size="1" onchange="makeSubmenu(this.value)" required>
             <option value="" disabled selected>Categories</option>
             <!-- <option>Mobile</option>
